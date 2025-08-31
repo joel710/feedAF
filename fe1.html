@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriFeedback AI</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#22c55e',secondary:'#16a34a'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+</style>
+</head>
+<body class="bg-gray-50 font-sans">
+<nav class="fixed top-0 w-full bg-white shadow-sm z-50 px-4 py-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<i class="ri-plant-line text-white text-lg"></i>
+</div>
+<h1 class="font-['Pacifico'] text-xl text-gray-800">AgriFeedback AI</h1>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-notification-3-line text-gray-600 text-xl cursor-pointer"></i>
+</div>
+</div>
+</nav>
+<main class="pt-16 pb-20 px-4">
+<div class="mt-6">
+<div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-6 text-white mb-6">
+<h2 class="text-xl font-semibold mb-2">Bonjour, Marie Kouassi !</h2>
+<p class="text-green-100 text-sm">Partagez vos observations pour améliorer l'agriculture ensemble</p>
+<div class="mt-4 flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+<span class="text-sm">3 questions aujourd'hui</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+<span class="text-sm">2 photos prises</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4 mb-6">
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 cursor-pointer" id="chat-card">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center space-x-3">
+<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+<i class="ri-chat-3-line text-blue-500 text-xl"></i>
+</div>
+<div>
+<h3 class="font-semibold text-gray-800">Chat quotidien</h3>
+<p class="text-sm text-gray-500">Répondez aux questions du jour</p>
+</div>
+</div>
+<div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+<span class="text-white text-xs font-bold">3</span>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-3">
+<p class="text-sm text-gray-600">"Comment évaluez-vous la santé de vos cultures cette semaine ?"</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 cursor-pointer" id="photo-card">
+<div class="flex items-center space-x-3 mb-4">
+<div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center">
+<i class="ri-camera-line text-green-500 text-xl"></i>
+</div>
+<div>
+<h3 class="font-semibold text-gray-800">Capture de photos</h3>
+<p class="text-sm text-gray-500">Documentez vos plantes</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-green-50 rounded-lg p-3 text-center">
+<i class="ri-leaf-line text-green-500 text-2xl mb-2"></i>
+<p class="text-xs text-green-700 font-medium">Plante saine</p>
+</div>
+<div class="bg-red-50 rounded-lg p-3 text-center">
+<i class="ri-bug-line text-red-500 text-2xl mb-2"></i>
+<p class="text-xs text-red-700 font-medium">Plante malade</p>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 cursor-pointer" id="dashboard-card">
+<div class="flex items-center space-x-3 mb-4">
+<div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center">
+<i class="ri-dashboard-line text-purple-500 text-xl"></i>
+</div>
+<div>
+<h3 class="font-semibold text-gray-800">Tableau de bord</h3>
+<p class="text-sm text-gray-500">Vos contributions et récompenses</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="text-center">
+<div class="text-2xl font-bold text-gray-800">47</div>
+<div class="text-xs text-gray-500">Feedbacks</div>
+</div>
+<div class="text-center">
+<div class="text-2xl font-bold text-gray-800">23</div>
+<div class="text-xs text-gray-500">Photos</div>
+</div>
+<div class="text-center">
+<div class="text-2xl font-bold text-primary">5</div>
+<div class="text-xs text-gray-500">Badges</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
+<h3 class="font-semibold text-gray-800 mb-4">Vos derniers badges</h3>
+<div class="flex space-x-4">
+<div class="text-center">
+<div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-2">
+<i class="ri-medal-line text-yellow-600 text-xl"></i>
+</div>
+<p class="text-xs text-gray-600">Observateur</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+<i class="ri-camera-fill text-blue-600 text-xl"></i>
+</div>
+<p class="text-xs text-gray-600">Photographe</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2">
+<i class="ri-plant-fill text-green-600 text-xl"></i>
+</div>
+<p class="text-xs text-gray-600">Expert</p>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+<h3 class="font-semibold text-gray-800 mb-4">Activité récente</h3>
+<div class="space-y-3">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+<i class="ri-check-line text-green-600 text-sm"></i>
+</div>
+<div class="flex-1">
+<p class="text-sm text-gray-800">Feedback envoyé sur les cultures de maïs</p>
+<p class="text-xs text-gray-500">Il y a 2 heures</p>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+<i class="ri-camera-line text-blue-600 text-sm"></i>
+</div>
+<div class="flex-1">
+<p class="text-sm text-gray-800">Photo de plante malade ajoutée</p>
+<p class="text-xs text-gray-500">Hier à 14:30</p>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+<i class="ri-star-line text-yellow-600 text-sm"></i>
+</div>
+<div class="flex-1">
+<p class="text-sm text-gray-800">Nouveau badge "Observateur" obtenu</p>
+<p class="text-xs text-gray-500">Il y a 3 jours</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 px-0 py-0">
+<div class="grid grid-cols-4 h-16">
+<button class="flex flex-col items-center justify-center space-y-1 text-primary">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-home-5-fill text-lg"></i>
+</div>
+<span class="text-xs font-medium">Accueil</span>
+</button>
+<a href="https://readdy.ai/home/52434653-3a95-4ad4-aae6-9d7ecb76779b/4d4e2690-fab2-4e0e-b9c3-66e45b17327f" data-readdy="true" class="flex flex-col items-center justify-center space-y-1 text-gray-400">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-chat-3-line text-lg"></i>
+</div>
+<span class="text-xs">Chat</span>
+</a>
+<button class="flex flex-col items-center justify-center space-y-1 text-gray-400">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-camera-line text-lg"></i>
+</div>
+<span class="text-xs">Photos</span>
+</button>
+<button class="flex flex-col items-center justify-center space-y-1 text-gray-400">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-line text-lg"></i>
+</div>
+<span class="text-xs">Profil</span>
+</button>
+</div>
+</nav>
+<script id="navigation-handler">
+document.addEventListener('DOMContentLoaded', function() {
+const tabButtons = document.querySelectorAll('nav:last-child button, nav:last-child a');
+tabButtons.forEach((button, index) => {
+button.addEventListener('click', function() {
+tabButtons.forEach(btn => {
+btn.classList.remove('text-primary');
+btn.classList.add('text-gray-400');
+const icon = btn.querySelector('i');
+if (icon.classList.contains('ri-home-5-fill')) {
+icon.classList.remove('ri-home-5-fill');
+icon.classList.add('ri-home-5-line');
+}
+});
+this.classList.remove('text-gray-400');
+this.classList.add('text-primary');
+if (index === 0) {
+const icon = this.querySelector('i');
+icon.classList.remove('ri-home-5-line');
+icon.classList.add('ri-home-5-fill');
+}
+});
+});
+});
+</script>
+<script id="card-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const chatCard = document.getElementById('chat-card');
+const photoCard = document.getElementById('photo-card');
+const dashboardCard = document.getElementById('dashboard-card');
+chatCard.addEventListener('click', function() {
+this.style.transform = 'scale(0.98)';
+setTimeout(() => {
+this.style.transform = 'scale(1)';
+}, 150);
+});
+photoCard.addEventListener('click', function() {
+this.style.transform = 'scale(0.98)';
+setTimeout(() => {
+this.style.transform = 'scale(1)';
+}, 150);
+});
+dashboardCard.addEventListener('click', function() {
+this.style.transform = 'scale(0.98)';
+setTimeout(() => {
+this.style.transform = 'scale(1)';
+}, 150);
+});
+});
+</script>
+<script id="notification-handler">
+document.addEventListener('DOMContentLoaded', function() {
+const notificationIcon = document.querySelector('.ri-notification-3-line');
+notificationIcon.addEventListener('click', function() {
+const notification = document.createElement('div');
+notification.className = 'fixed top-20 left-4 right-4 bg-white rounded-lg shadow-lg p-4 z-50 border border-gray-200';
+notification.innerHTML = `
+<div class="flex items-start space-x-3">
+<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+<i class="ri-information-line text-blue-600"></i>
+</div>
+<div class="flex-1">
+<h4 class="font-semibold text-gray-800 text-sm">Nouvelles questions disponibles</h4>
+<p class="text-xs text-gray-600 mt-1">3 questions vous attendent dans le chat quotidien</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600" onclick="this.parentElement.parentElement.remove()">
+<i class="ri-close-line"></i>
+</button>
+</div>
+`;
+document.body.appendChild(notification);
+setTimeout(() => {
+if (notification.parentElement) {
+notification.remove();
+}
+}, 5000);
+});
+});
+</script>
+</body>
+</html>
